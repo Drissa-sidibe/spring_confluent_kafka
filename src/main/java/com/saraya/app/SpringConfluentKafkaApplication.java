@@ -1,6 +1,8 @@
 package com.saraya.app;
 
 import com.github.javafaker.Faker;
+import io.dekorate.kubernetes.annotation.KubernetesApplication;
+import io.dekorate.kubernetes.annotation.Label;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +17,7 @@ import java.time.Duration;
 import java.util.stream.Stream;
 
 @SpringBootApplication
+@KubernetesApplication(labels = @Label(key ="app.kubernetes.io/name" ,value = "spring confluent kafka"))
 public class SpringConfluentKafkaApplication {
 
 	public static void main(String[] args) {
